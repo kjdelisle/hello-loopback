@@ -1,17 +1,6 @@
-import {Application} from '@loopback/core';
-import {RestComponent, RestServer} from '@loopback/rest';
- 
-const app = new Application({
-  components: [
-    RestComponent,
-  ]
-});
+import { HelloWorldApp } from './application';
 
-(async function start() {
-  const rest = await app.getServer(RestServer);
-  rest.handler((sequence, request, response) => {
-    sequence.send(response, 'hello world');
-  });
+(async function main() {
+  const app = new HelloWorldApp();
   await app.start();
-  console.log(`REST server running on port: ${rest.getSync('rest.port')}`);
 })();
