@@ -4,7 +4,7 @@
   "authors": "you",
   "version": "1.0.0",
   "scripts": {
-    "start": "ts-node ./index.ts"
+    "start": "tsc && node ."
   },
   "dependencies": {
     "@loopback/core": "^4.0.0-alpha.16",
