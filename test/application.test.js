@@ -9,10 +9,28 @@ describe('application', () => {
   before(createClient);
   after(stopServer);
 
-  it('returns "hello world" for GET requests to /', async () => {
-    const res = await client.get('/');
+  it('returns "hello world" for GET requests to /greet', async () => {
+    const res = await client.get('/greet');
     expect(res.statusCode).to.eql(200);
     expect(res.text).to.eql('hello world');
+  });
+
+  it('returns "hello bob" for GET requests to /greet?name=bob', async () => {
+    const res = await client.get('/greet?name=bob');
+    expect(res.statusCode).to.eql(200);
+    expect(res.text).to.eql('hello bob');
+  });
+
+  it('returns "good morning, world" for GET requests to /greet?timeOfDay=morning', async () => {
+    const res = await client.get('/greet?timeOfDay=morning');
+    expect(res.statusCode).to.eql(200);
+    expect(res.text).to.eql('good morning, world');
+  });
+
+  it('returns "good morning, bob" for GET requests to /greet?timeOfDay=morning&name=bob', async () => {
+    const res = await client.get('/greet?timeOfDay=morning&name=bob');
+    expect(res.statusCode).to.eql(200);
+    expect(res.text).to.eql('good morning, bob');
   });
 
   async function createClient() {

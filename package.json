@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node .",
-    "test": "mocha test/*.js"
+    "test": "mocha --recursive ./test"
   },
   "dependencies": {
     "@loopback/core": "^4.0.0-alpha.16",

@@ -1,0 +1,33 @@
+{
+  "swagger": "2.0",
+  "basePath": "/",
+  "info": {
+    "title": "Your First App",
+    "version": "1.0"
+  },
+  "paths": {
+    "/greet": {
+      "get": {
+        "parameters": [
+          {
+            "name": "timeOfDay",
+            "type": "string",
+            "in": "query"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "greet successful"
+          }
+        },
+        "x-controller-name": "GreetController",
+        "x-operation-name": "greet"
+      }
+    }
+  }
+}
