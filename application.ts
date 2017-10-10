@@ -11,7 +11,7 @@ export class HelloWorldApp extends Application {
   async start() {
     const rest = await this.getServer(RestServer);
     rest.handler((sequence, request, response) => {
-      sequence.send(response, 'hello world');
+      sequence.send(response, 'Hello World!');
     });
     await super.start();
     console.log(`REST server running on port: ${await rest.get('rest.port')}`);
